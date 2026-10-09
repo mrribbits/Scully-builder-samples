@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" ?>
+<PsychoPy2experiment encoding="utf-8" version="2026.2.3">
+  <Settings>
+    <Param val="use prefs" valType="str" updates="None" name="Audio lib"/>
+    <Param val="" valType="str" updates="None" name="Completed URL"/>
+    <Param val="auto" valType="str" updates="None" name="Data file delimiter"/>
+    <Param val="u'data/%s_%s_%s' % (expInfo['participant'], expInfo['session'], expInfo['date'])" valType="code" updates="None" name="Data filename"/>
+    <Param val="True" valType="bool" updates="None" name="Enable Escape"/>
+    <Param val="Thank you for your patience." valType="str" updates="None" name="End Message"/>
+    <Param val="{'participant': '', 'session': '001', 'dummy_vpixx': False}" valType="code" updates="None" name="Experiment info"/>
+    <Param val="True" valType="bool" updates="None" name="Force stereo"/>
+    <Param val="True" valType="bool" updates="None" name="Full-screen window"/>
+    <Param val="" valType="str" updates="None" name="HTML path"/>
+    <Param val="" valType="str" updates="None" name="Incomplete URL"/>
+    <Param val="testMonitor" valType="str" updates="None" name="Monitor"/>
+    <Param val="[]" valType="list" updates="None" name="Resources"/>
+    <Param val="False" valType="bool" updates="None" name="Save csv file"/>
+    <Param val="False" valType="bool" updates="None" name="Save excel file"/>
+    <Param val="False" valType="bool" updates="None" name="Save hdf5 file"/>
+    <Param val="True" valType="bool" updates="None" name="Save log file"/>
+    <Param val="True" valType="bool" updates="None" name="Save psydat file"/>
+    <Param val="True" valType="bool" updates="None" name="Save wide csv file"/>
+    <Param val="1" valType="num" updates="None" name="Screen"/>
+    <Param val="True" valType="bool" updates="None" name="Show info dlg"/>
+    <Param val="False" valType="bool" updates="None" name="Show mouse"/>
+    <Param val="pix" valType="str" updates="None" name="Units"/>
+    <Param val="" valType="str" updates="None" name="Use version"/>
+    <Param val="[1920, 1080]" valType="list" updates="None" name="Window size (pixels)"/>
+    <Param val="none" valType="str" updates="None" name="backgroundFit"/>
+    <Param val="" valType="str" updates="None" name="backgroundImg"/>
+    <Param val="avg" valType="str" updates="None" name="blendMode"/>
+    <Param val="float" valType="str" updates="None" name="clockFormat"/>
+    <Param val="{'thisRow.t': 'priority.CRITICAL', 'expName': 'priority.LOW'}" valType="dict" updates="None" name="colPriority"/>
+    <Param val="[-1, -1, -1]" valType="color" updates="None" name="color"/>
+    <Param val="rgb" valType="str" updates="None" name="colorSpace"/>
+    <Param val="warning" valType="code" updates="None" name="consoleLoggingLevel"/>
+    <Param val="ChoiceRT_VPixxAudio" valType="str" updates="None" name="expName"/>
+    <Param val="" valType="str" updates="None" name="expVersion"/>
+    <Param val="on Sync" valType="str" updates="None" name="exportHTML"/>
+    <Param val="None" valType="str" updates="None" name="eyetracker"/>
+    <Param val="" valType="code" updates="None" name="frameRate"/>
+    <Param val="Attempting to measure frame rate of screen, please wait..." valType="str" updates="None" name="frameRateMsg"/>
+    <Param val="PsychToolbox" valType="str" updates="None" name="keyboardBackend"/>
+    <Param val="info" valType="code" updates="None" name="logging level"/>
+    <Param val="True" valType="bool" updates="None" name="measureFrameRate"/>
+    <Param val="MIDDLE_BUTTON" valType="list" updates="None" name="mgBlink"/>
+    <Param val="CONTINUOUS" valType="str" updates="None" name="mgMove"/>
+    <Param val="0.5" valType="num" updates="None" name="mgSaccade"/>
+    <Param val="0" valType="code" updates="None" name="runMode"/>
+    <Param val="False" valType="bool" updates="None" name="rush"/>
+    <Param val="time" valType="str" updates="None" name="sortColumns"/>
+    <Param val="pyglet" valType="str" updates="None" name="winBackend"/>
+  </Settings>
+  <Routines>
+    <Routine name="instruct">
+      <RoutineSettingsComponent name="instruct" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit"/>
+        <Param val="" valType="str" updates="None" name="backgroundImg"/>
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color"/>
+        <Param val="rgb" valType="str" updates="None" name="colorSpace"/>
+        <Param val="" valType="str" updates="constant" name="desc"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="code" updates="None" name="forceNonSlip"/>
+        <Param val="instruct" valType="code" updates="None" name="name"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="constant" name="skipIf"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
+      </RoutineSettingsComponent>
+      <CodeComponent name="vpixxAudio" plugin="None">
+        <Param val="# =====================================================================&amp;#10;# VPixx DATAPixx3 audio (MEG lab) -- adapted from the oddball script&amp;#10;# ---------------------------------------------------------------------&amp;#10;# One tone is generated here, written once into DATAPixx3 RAM, and&amp;#10;# replayed every trial by the audio scheduler. lrMode 'left' / 'right'&amp;#10;# sends the (mono) buffer to that ear only. Playback is armed just&amp;#10;# before a flip and pushed to the device at that flip's vsync, so the&amp;#10;# tone starts on the same frame as Builder's response keyboard.&amp;#10;# No Pixel Mode and no MEG triggers in this experiment.&amp;#10;# =====================================================================&amp;#10;import atexit&amp;#10;import numpy as np&amp;#10;&amp;#10;# ---- tone ----&amp;#10;TONE_FREQ         = 1000      # Hz&amp;#10;TONE_DURATION     = 0.100     # s&amp;#10;RAMP_DURATION     = 0.010     # s, cosine on/off ramps (no clicks)&amp;#10;AUDIO_SAMPLE_RATE = 48000     # Hz, DATAPixx3 audio codec&amp;#10;AUDIO_AMPLITUDE   = 0.8       # 0-1, scaled to int16&amp;#10;TONE_BUFFER_ADDR  = int(16e6) # DATAPixx3 RAM address (VPixx default)&amp;#10;VPIXX_AUDIO_VOLUME = 0.5      # codec volume 0-1 (codec opens at 0 = silent!)&amp;#10;&amp;#10;try:&amp;#10;    from pypixxlib import _libdpx as _real_dp&amp;#10;    HAS_PYPIXXLIB = True&amp;#10;except ImportError:&amp;#10;    _real_dp = None&amp;#10;    HAS_PYPIXXLIB = False&amp;#10;&amp;#10;&amp;#10;def make_tone_int16(freq, dur, rate, ramp, amp):&amp;#10;    n = int(round(dur * rate))&amp;#10;    n_ramp = int(round(ramp * rate))&amp;#10;    t = np.arange(n) / rate&amp;#10;    tone = np.sin(2.0 * np.pi * freq * t)&amp;#10;    up = 0.5 * (1.0 - np.cos(np.pi * np.arange(n_ramp) / n_ramp))&amp;#10;    tone[:n_ramp] *= up&amp;#10;    tone[-n_ramp:] *= up[::-1]&amp;#10;    return (np.clip(tone * amp, -1.0, 1.0) * 32767.0).astype(np.int16)&amp;#10;&amp;#10;&amp;#10;toneWave = make_tone_int16(TONE_FREQ, TONE_DURATION, AUDIO_SAMPLE_RATE,&amp;#10;                           RAMP_DURATION, AUDIO_AMPLITUDE)&amp;#10;toneSamples = int(len(toneWave))&amp;#10;" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="# Defined here (inside Builder's run()) because these helpers need win,&amp;#10;# thisExp and dp, which only exist inside run().&amp;#10;DUMMY_VPIXX = bool(expInfo['dummy_vpixx'])&amp;#10;if not HAS_PYPIXXLIB and not DUMMY_VPIXX:&amp;#10;    logging.warning('pypixxlib not installed -&gt; DUMMY_VPIXX forced on '&amp;#10;                    '(PsychoPy sound, NOT vsync-locked)')&amp;#10;    DUMMY_VPIXX = True&amp;#10;thisExp.addData('dummy_vpixx', DUMMY_VPIXX)&amp;#10;&amp;#10;dp = None if DUMMY_VPIXX else _real_dp&amp;#10;dummySounds = {}&amp;#10;&amp;#10;if DUMMY_VPIXX:&amp;#10;    # Fallback for testing without hardware: stereo PsychoPy sounds with&amp;#10;    # the other ear silent. Audible, but timing is not vsync-locked.&amp;#10;    from psychopy import sound as _sound&amp;#10;    _mono = toneWave.astype(np.float32) / 32767.0&amp;#10;    _zero = np.zeros_like(_mono)&amp;#10;    dummySounds['left'] = _sound.Sound(np.column_stack([_mono, _zero]),&amp;#10;                                       sampleRate=AUDIO_SAMPLE_RATE, stereo=True)&amp;#10;    dummySounds['right'] = _sound.Sound(np.column_stack([_zero, _mono]),&amp;#10;                                        sampleRate=AUDIO_SAMPLE_RATE, stereo=True)&amp;#10;else:&amp;#10;    dp.DPxOpen()&amp;#10;    dp.DPxStopAllScheds()&amp;#10;    dp.DPxInitAudCodec()&amp;#10;    dp.DPxSetAudLeftVolume(VPIXX_AUDIO_VOLUME)&amp;#10;    dp.DPxSetAudRightVolume(VPIXX_AUDIO_VOLUME)&amp;#10;    dp.DPxWriteRegCache()&amp;#10;    dp.DPxWriteAudioBuffer(toneWave, TONE_BUFFER_ADDR)&amp;#10;    dp.DPxWriteRegCache()&amp;#10;    logging.exp('VPixx audio ready: %d samples @ %d Hz (%.1f ms)'&amp;#10;                % (toneSamples, AUDIO_SAMPLE_RATE,&amp;#10;                   1000.0 * toneSamples / AUDIO_SAMPLE_RATE))&amp;#10;&amp;#10;&amp;#10;def prep_tone(side):&amp;#10;    &quot;&quot;&quot;Load the schedule for this ear. Does NOT start it.&amp;#10;    Call in Begin Routine, well before the tone flip.&quot;&quot;&quot;&amp;#10;    if DUMMY_VPIXX:&amp;#10;        return&amp;#10;    dp.DPxSetAudioSchedule(0.0, AUDIO_SAMPLE_RATE, toneSamples, side,&amp;#10;                           TONE_BUFFER_ADDR)&amp;#10;    dp.DPxWriteRegCache()&amp;#10;&amp;#10;&amp;#10;def _stamp_tone():&amp;#10;    # Runs right after the tone flip: DATAPixx3 clock at that vsync.&amp;#10;    if DUMMY_VPIXX:&amp;#10;        return&amp;#10;    dp.DPxUpdateRegCache()&amp;#10;    thisExp.addData('tone.vp', dp.DPxGetTime())&amp;#10;&amp;#10;&amp;#10;def arm_tone(side):&amp;#10;    &quot;&quot;&quot;Call on the frame the tone should start, before that frame's flip.&amp;#10;    The start bit is pushed to the DATAPixx3 at the flip's vsync.&amp;#10;    Nothing may call DPxUpdateRegCache between this and the flip.&quot;&quot;&quot;&amp;#10;    if DUMMY_VPIXX:&amp;#10;        snd = dummySounds[side]&amp;#10;        snd.stop()&amp;#10;        win.callOnFlip(snd.play)&amp;#10;    else:&amp;#10;        dp.DPxStartAudSched()&amp;#10;        dp.DPxWriteRegCacheAfterVideoSync()&amp;#10;    win.callOnFlip(_stamp_tone)&amp;#10;&amp;#10;&amp;#10;_vpixx_closed = [False]&amp;#10;&amp;#10;&amp;#10;def close_vpixx():&amp;#10;    if DUMMY_VPIXX or _vpixx_closed[0]:&amp;#10;        return&amp;#10;    _vpixx_closed[0] = True&amp;#10;    for f in (dp.DPxStopAllScheds, dp.DPxWriteRegCache, dp.DPxClose):&amp;#10;        try:&amp;#10;            f()&amp;#10;        except Exception:&amp;#10;            pass&amp;#10;&amp;#10;&amp;#10;atexit.register(close_vpixx)   # also releases the device after Esc&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Py" valType="str" updates="None" name="Code Type"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="close_vpixx()&amp;#10;" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="vpixxAudio" valType="code" updates="None" name="name"/>
+      </CodeComponent>
+      <TextComponent name="taskInstructions" plugin="None">
+        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="False" valType="code" updates="constant" name="draggable"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="32" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="taskInstructions" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="On each trial you will hear a short tone in your LEFT or RIGHT ear.&amp;#10;&amp;#10;Tone in the LEFT ear: press with your LEFT index finger.&amp;#10;Tone in the RIGHT ear: press with your RIGHT index finger.&amp;#10;&amp;#10;Respond as quickly and accurately as you can, and keep your eyes on the cross.&amp;#10;&amp;#10;Press either button to start." valType="str" updates="constant" name="text"/>
+        <Param val="pix" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="1400" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <KeyboardComponent name="ready" plugin="None">
+        <Param val="'7', '2'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="" valType="str" updates="constant" name="correctAns"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="ready" valType="code" updates="None" name="name"/>
+        <Param val="press" valType="str" updates="constant" name="registerOn"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="last key" valType="str" updates="constant" name="store"/>
+        <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="trial">
+      <RoutineSettingsComponent name="trial" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit"/>
+        <Param val="" valType="str" updates="None" name="backgroundImg"/>
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color"/>
+        <Param val="rgb" valType="str" updates="None" name="colorSpace"/>
+        <Param val="" valType="str" updates="constant" name="desc"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="code" updates="None" name="forceNonSlip"/>
+        <Param val="trial" valType="code" updates="None" name="name"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="constant" name="skipIf"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
+      </RoutineSettingsComponent>
+      <PolygonComponent name="fixation" plugin="None">
+        <Param val="center" valType="str" updates="constant" name="anchor"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="False" valType="code" updates="constant" name="draggable"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="white" valType="color" updates="constant" name="fillColor"/>
+        <Param val="linear" valType="str" updates="constant" name="interpolate"/>
+        <Param val="white" valType="color" updates="constant" name="lineColor"/>
+        <Param val="1" valType="num" updates="constant" name="lineWidth"/>
+        <Param val="4" valType="int" updates="constant" name="nVertices"/>
+        <Param val="fixation" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="cross" valType="str" updates="None" name="shape"/>
+        <Param val="(32, 32)" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="pix" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="list" updates="constant" name="vertices"/>
+      </PolygonComponent>
+      <KeyboardComponent name="resp" plugin="None">
+        <Param val="'7', '2'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="$corrAns" valType="str" updates="constant" name="correctAns"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="resp" valType="code" updates="None" name="name"/>
+        <Param val="press" valType="str" updates="constant" name="registerOn"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="ITI + foreperiod" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="RESP_DEADLINE" valType="code" updates="constant" name="stopVal"/>
+        <Param val="first key" valType="str" updates="constant" name="store"/>
+        <Param val="True" valType="bool" updates="constant" name="storeCorrect"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+      </KeyboardComponent>
+      <CodeComponent name="trialCode" plugin="None">
+        <Param val="# ---- timing (s) ----&amp;#10;ITI = 0.5                        # fixed part of the pre-tone period&amp;#10;FOREPERIOD_MIN, FOREPERIOD_MAX = 0.8, 1.5&amp;#10;RESP_DEADLINE = 1.5              # response window from tone onset&amp;#10;" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="foreperiod = FOREPERIOD_MIN + random() * (FOREPERIOD_MAX - FOREPERIOD_MIN)&amp;#10;toneOnset = ITI + foreperiod&amp;#10;thisExp.addData('foreperiod', foreperiod)&amp;#10;prep_tone(toneSide)              # 'left' or 'right' from conditions.csv&amp;#10;toneArmed = False&amp;#10;# routine ends on a response, or RESP_DEADLINE after the tone&amp;#10;trialEnd = toneOnset + RESP_DEADLINE&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Py" valType="str" updates="None" name="Code Type"/>
+        <Param val="# Same start test Builder uses for resp, so the tone starts on the&amp;#10;# flip where the response clock starts (RT = time from tone onset).&amp;#10;if not toneArmed and tThisFlip &gt;= toneOnset - frameTolerance:&amp;#10;    arm_tone(toneSide)&amp;#10;    toneArmed = True&amp;#10;    thisExp.addData('tone.started', tThisFlipGlobal)   # PsychoPy time of the tone flip&amp;#10;if tThisFlip &gt;= trialEnd - frameTolerance:&amp;#10;    continueRoutine = False&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="timeout = int(resp.keys in ('', [], None))&amp;#10;thisExp.addData('timeout', timeout)&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="trialCode" valType="code" updates="None" name="name"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="thanks">
+      <RoutineSettingsComponent name="thanks" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit"/>
+        <Param val="" valType="str" updates="None" name="backgroundImg"/>
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color"/>
+        <Param val="rgb" valType="str" updates="None" name="colorSpace"/>
+        <Param val="" valType="str" updates="constant" name="desc"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="code" updates="None" name="forceNonSlip"/>
+        <Param val="thanks" valType="code" updates="None" name="name"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="constant" name="skipIf"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
+      </RoutineSettingsComponent>
+      <TextComponent name="thanksText" plugin="None">
+        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="False" valType="code" updates="constant" name="draggable"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="32" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="thanksText" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="3.0" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="Thank you!&amp;#10;&amp;#10;The task is complete." valType="str" updates="constant" name="text"/>
+        <Param val="pix" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="1400" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+    </Routine>
+  </Routines>
+  <Flow>
+    <Routine name="instruct"/>
+    <LoopInitiator loopType="TrialHandler" name="trials">
+      <Param name="Selected rows" updates="None" val="" valType="code"/>
+      <Param name="conditions" updates="None" val="[OrderedDict({'toneSide': 'left', 'corrAns': np.int64(7)}), OrderedDict({'toneSide': 'right', 'corrAns': np.int64(2)})]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="conditions.csv" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="code"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="20" valType="code"/>
+      <Param name="name" updates="None" val="trials" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="trial"/>
+    <LoopTerminator name="trials"/>
+    <Routine name="thanks"/>
+  </Flow>
+</PsychoPy2experiment>

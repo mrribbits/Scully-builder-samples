@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" ?>
+<PsychoPy2experiment encoding="utf-8" version="2026.2.3">
+  <Settings>
+    <Param val="use prefs" valType="str" updates="None" name="Audio lib"/>
+    <Param val="" valType="str" updates="None" name="Completed URL"/>
+    <Param val="auto" valType="str" updates="None" name="Data file delimiter"/>
+    <Param val="u'data/%s_%s_%s' % (expInfo['participant'], expInfo['session'], expInfo['date'])" valType="code" updates="None" name="Data filename"/>
+    <Param val="True" valType="bool" updates="None" name="Enable Escape"/>
+    <Param val="Thank you for your patience." valType="str" updates="None" name="End Message"/>
+    <Param val="{'participant': '', 'session': '001', 'dummy_vpixx': 'False'}" valType="code" updates="None" name="Experiment info"/>
+    <Param val="True" valType="bool" updates="None" name="Force stereo"/>
+    <Param val="True" valType="bool" updates="None" name="Full-screen window"/>
+    <Param val="" valType="str" updates="None" name="HTML path"/>
+    <Param val="" valType="str" updates="None" name="Incomplete URL"/>
+    <Param val="testMonitor" valType="str" updates="None" name="Monitor"/>
+    <Param val="[]" valType="list" updates="None" name="Resources"/>
+    <Param val="False" valType="bool" updates="None" name="Save csv file"/>
+    <Param val="False" valType="bool" updates="None" name="Save excel file"/>
+    <Param val="False" valType="bool" updates="None" name="Save hdf5 file"/>
+    <Param val="True" valType="bool" updates="None" name="Save log file"/>
+    <Param val="True" valType="bool" updates="None" name="Save psydat file"/>
+    <Param val="True" valType="bool" updates="None" name="Save wide csv file"/>
+    <Param val="1" valType="num" updates="None" name="Screen"/>
+    <Param val="True" valType="bool" updates="None" name="Show info dlg"/>
+    <Param val="False" valType="bool" updates="None" name="Show mouse"/>
+    <Param val="pix" valType="str" updates="None" name="Units"/>
+    <Param val="" valType="str" updates="None" name="Use version"/>
+    <Param val="[1920, 1080]" valType="list" updates="None" name="Window size (pixels)"/>
+    <Param val="none" valType="str" updates="None" name="backgroundFit"/>
+    <Param val="" valType="str" updates="None" name="backgroundImg"/>
+    <Param val="avg" valType="str" updates="None" name="blendMode"/>
+    <Param val="float" valType="str" updates="None" name="clockFormat"/>
+    <Param val="{'thisRow.t': 'priority.CRITICAL', 'expName': 'priority.LOW'}" valType="dict" updates="None" name="colPriority"/>
+    <Param val="[-1, -1, -1]" valType="color" updates="None" name="color"/>
+    <Param val="rgb" valType="str" updates="None" name="colorSpace"/>
+    <Param val="warning" valType="code" updates="None" name="consoleLoggingLevel"/>
+    <Param val="ChoiceRT_VPixxPixelMode" valType="str" updates="None" name="expName"/>
+    <Param val="" valType="str" updates="None" name="expVersion"/>
+    <Param val="on Sync" valType="str" updates="None" name="exportHTML"/>
+    <Param val="None" valType="str" updates="None" name="eyetracker"/>
+    <Param val="" valType="code" updates="None" name="frameRate"/>
+    <Param val="Attempting to measure frame rate of screen, please wait..." valType="str" updates="None" name="frameRateMsg"/>
+    <Param val="PsychToolbox" valType="str" updates="None" name="keyboardBackend"/>
+    <Param val="info" valType="code" updates="None" name="logging level"/>
+    <Param val="True" valType="bool" updates="None" name="measureFrameRate"/>
+    <Param val="MIDDLE_BUTTON" valType="list" updates="None" name="mgBlink"/>
+    <Param val="CONTINUOUS" valType="str" updates="None" name="mgMove"/>
+    <Param val="0.5" valType="num" updates="None" name="mgSaccade"/>
+    <Param val="0" valType="code" updates="None" name="runMode"/>
+    <Param val="False" valType="bool" updates="None" name="rush"/>
+    <Param val="time" valType="str" updates="None" name="sortColumns"/>
+    <Param val="pyglet" valType="str" updates="None" name="winBackend"/>
+  </Settings>
+  <Routines>
+    <Routine name="instruct">
+      <RoutineSettingsComponent name="instruct" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit"/>
+        <Param val="" valType="str" updates="None" name="backgroundImg"/>
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color"/>
+        <Param val="rgb" valType="str" updates="None" name="colorSpace"/>
+        <Param val="" valType="str" updates="constant" name="desc"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="code" updates="None" name="forceNonSlip"/>
+        <Param val="instruct" valType="code" updates="None" name="name"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="constant" name="skipIf"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
+      </RoutineSettingsComponent>
+      <CodeComponent name="vpixx" plugin="None">
+        <Param val="# =====================================================================&amp;#10;# VPixx Pixel Mode B triggers (MEG lab)&amp;#10;# ---------------------------------------------------------------------&amp;#10;# A 1x1 px patch in the upper-left corner carries the trigger value in&amp;#10;# its BLUE channel (red = green = 0). At each vsync the DATAPixx3 reads&amp;#10;# that pixel and puts the value on its digital output -&gt; MEG trigger&amp;#10;# channel. 8 lines available: 1, 2, 4, 8, 16, 32, 64, 128.&amp;#10;#&amp;#10;# Trigger pixel colours are written literally as (R, G, B) in 0-255&amp;#10;# (the patch uses colorSpace='rgb255'). Only blue carries the trigger.&amp;#10;#   TRIG_FIXATION   (0, 0, 1)   fixation cross onset (every trial)&amp;#10;#   TRIG_TARGET_L   (0, 0, 2)   target onset, LEFT&amp;#10;#   TRIG_TARGET_R   (0, 0, 4)   target onset, RIGHT&amp;#10;#   TRIG_RESET      (0, 0, 0)   black = all trigger lines low&amp;#10;#   spare blue values: 8, 16, 32, 64, 128&amp;#10;#&amp;#10;# Each onset trigger is held for TRIG_HOLD_FRAMES video frames and then&amp;#10;# the pixel is reset to black (0). The trigger edge marks the vsync at&amp;#10;# which the display BEGINS scanning out the new frame.&amp;#10;# =====================================================================&amp;#10;import atexit&amp;#10;&amp;#10;TRIG_FIXATION = (0, 0, 1)&amp;#10;TRIG_TARGET_L = (0, 0, 2)&amp;#10;TRIG_TARGET_R = (0, 0, 4)&amp;#10;TRIG_RESET = (0, 0, 0)&amp;#10;TRIG_HOLD_FRAMES = 1   # 1 frame = 8.33 ms at 120 Hz (~10 samples at 1200 Hz)&amp;#10;&amp;#10;# pypixxlib is imported here; if it is missing the experiment falls back&amp;#10;# to dummy mode (no triggers sent, *.vp columns left empty).&amp;#10;try:&amp;#10;    from pypixxlib import _libdpx as _real_dp&amp;#10;    _HAS_PYPIXXLIB = True&amp;#10;except ImportError:&amp;#10;    _real_dp = None&amp;#10;    _HAS_PYPIXXLIB = False&amp;#10;&amp;#10;&amp;#10;class _MockDPx:&amp;#10;    &quot;&quot;&quot;No-op stand-in for pypixxlib._libdpx (dummy mode).&quot;&quot;&quot;&amp;#10;    def __getattr__(self, name):&amp;#10;        if name == 'DPxGetTime':&amp;#10;            return lambda: 0.0&amp;#10;        return lambda *a, **k: None&amp;#10;" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="# NOTE: Builder runs this tab INSIDE run(), where win, thisExp and expInfo&amp;#10;# live. The VPixx helpers are therefore defined here (not in Before&amp;#10;# Experiment) so they can see dp, win, thisExp and trigger_patch.&amp;#10;&amp;#10;# ---- connect to the DATAPixx3 (or fall back to dummy mode) ----&amp;#10;DUMMY_VPIXX = str(expInfo.get('dummy_vpixx', False)).lower() in ('true', '1', 'yes')&amp;#10;if not _HAS_PYPIXXLIB and not DUMMY_VPIXX:&amp;#10;    logging.warning('pypixxlib not installed: forcing dummy VPixx mode (NO TRIGGERS)')&amp;#10;    DUMMY_VPIXX = True&amp;#10;dp = _MockDPx() if DUMMY_VPIXX else _real_dp&amp;#10;_vpx = {'closed': False, 'frames_left': 0}&amp;#10;&amp;#10;&amp;#10;def init_vpixx():&amp;#10;    dp.DPxOpen()&amp;#10;    dp.DPxStopAllScheds()&amp;#10;    dp.DPxEnableDoutPixelModeB()   # blue-channel trigger output&amp;#10;    dp.DPxWriteRegCache()&amp;#10;&amp;#10;&amp;#10;def close_vpixx():&amp;#10;    # Disable pixel mode and disconnect (safe to call more than once).&amp;#10;    if _vpx['closed']:&amp;#10;        return&amp;#10;    _vpx['closed'] = True&amp;#10;    for fn in ('DPxStopAllScheds', 'DPxDisableDoutPixelMode',&amp;#10;               'DPxWriteRegCache', 'DPxClose'):&amp;#10;        try:&amp;#10;            getattr(dp, fn)()&amp;#10;        except Exception:&amp;#10;            pass&amp;#10;&amp;#10;&amp;#10;def _set_patch(rgb):&amp;#10;    # rgb is an (R, G, B) tuple in 0-255; the patch is in 'rgb255' space&amp;#10;    trigger_patch.fillColor = rgb&amp;#10;    trigger_patch.lineColor = rgb&amp;#10;&amp;#10;&amp;#10;def _stamp_vp(label):&amp;#10;    # Runs right after the flip that showed the trigger: VPixx clock time.&amp;#10;    if DUMMY_VPIXX:&amp;#10;        return&amp;#10;    dp.DPxUpdateRegCache()&amp;#10;    thisExp.addData(label + '.vp', dp.DPxGetTime())&amp;#10;&amp;#10;&amp;#10;def send_trigger(rgb, label=None):&amp;#10;    # Put the (R, G, B) colour `rgb` on the trigger pixel for the NEXT flip,&amp;#10;    # then auto-reset. Blue = trigger value on the MEG trigger channel.&amp;#10;    # Call from Each Frame on the frame a stimulus starts&amp;#10;    # (frameNStart == frameN) so the trigger shares the stimulus flip.&amp;#10;    _set_patch(rgb)&amp;#10;    _vpx['frames_left'] = TRIG_HOLD_FRAMES&amp;#10;    if label:&amp;#10;        thisExp.addData(label + '.trigger', rgb[2])   # blue = trigger value&amp;#10;        win.callOnFlip(_stamp_vp, label)&amp;#10;&amp;#10;&amp;#10;def tick_trigger():&amp;#10;    # Call FIRST in Each Frame: resets the pixel to black after the hold.&amp;#10;    if _vpx['frames_left'] &gt; 0:&amp;#10;        _vpx['frames_left'] -= 1&amp;#10;        if _vpx['frames_left'] == 0:&amp;#10;            _set_patch(TRIG_RESET)&amp;#10;&amp;#10;&amp;#10;def reset_trigger():&amp;#10;    # Force the pixel to black (call in Begin Routine of every routine).&amp;#10;    _vpx['frames_left'] = 0&amp;#10;    _set_patch(TRIG_RESET)&amp;#10;&amp;#10;&amp;#10;# Pixel Mode reads the top-left pixel of the whole SCREEN. If the window is&amp;#10;# not full screen (e.g. Builder's Pilot mode forces an 800x600 window), that&amp;#10;# pixel belongs to the desktop and the trigger lines show garbage. Refuse to&amp;#10;# run with real hardware unless the window is full screen in Run mode.&amp;#10;if not DUMMY_VPIXX and (PILOTING or not win.fullscr):&amp;#10;    msg = ('VPixx Pixel Mode triggers need a FULL-SCREEN window in RUN mode '&amp;#10;           '(PILOTING=%s, fullscr=%s). Switch Builder from Pilot to Run, or '&amp;#10;           'tick dummy_vpixx to test without triggers.' % (PILOTING, win.fullscr))&amp;#10;    logging.error(msg)&amp;#10;    raise RuntimeError(msg)&amp;#10;&amp;#10;init_vpixx()&amp;#10;atexit.register(close_vpixx)   # also closes the device if the run aborts&amp;#10;thisExp.addData('dummy_vpixx', DUMMY_VPIXX)&amp;#10;&amp;#10;# ---- 1x1 px trigger patch, exact upper-left screen pixel ----&amp;#10;_ww, _wh = win.size&amp;#10;trigger_patch = visual.Rect(&amp;#10;    win, units='pix', width=1, height=1,&amp;#10;    pos=(-_ww / 2.0 + 0.5, _wh / 2.0 - 0.5),&amp;#10;    lineWidth=0, colorSpace='rgb255',&amp;#10;    fillColor=TRIG_RESET, lineColor=TRIG_RESET,&amp;#10;    interpolate=False, autoLog=False)&amp;#10;trigger_patch.setAutoDraw(True)   # drawn on every flip for the whole session&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="reset_trigger()&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Py" valType="str" updates="None" name="Code Type"/>
+        <Param val="tick_trigger()&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="# black trigger pixel, pixel mode off, device closed&amp;#10;reset_trigger()&amp;#10;trigger_patch.setAutoDraw(False)&amp;#10;close_vpixx()&amp;#10;" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="vpixx" valType="code" updates="None" name="name"/>
+      </CodeComponent>
+      <TextComponent name="taskInstructions" plugin="None">
+        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="False" valType="code" updates="constant" name="draggable"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="32" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="taskInstructions" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="Reaction time task&amp;#10;&amp;#10;Keep your eyes on the cross in the centre of the screen.&amp;#10;&amp;#10;A white dot will appear on the LEFT or RIGHT.&amp;#10;&amp;#10;LEFT dot  -&gt;  LEFT index finger&amp;#10;RIGHT dot  -&gt;  RIGHT index finger&amp;#10;&amp;#10;Respond as quickly and accurately as you can.&amp;#10;&amp;#10;Press either button to start." valType="str" updates="constant" name="text"/>
+        <Param val="pix" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="1400" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <KeyboardComponent name="ready" plugin="None">
+        <Param val="'7', '2'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="" valType="str" updates="constant" name="correctAns"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="ready" valType="code" updates="None" name="name"/>
+        <Param val="press" valType="str" updates="constant" name="registerOn"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="last key" valType="str" updates="constant" name="store"/>
+        <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="trial">
+      <RoutineSettingsComponent name="trial" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit"/>
+        <Param val="" valType="str" updates="None" name="backgroundImg"/>
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color"/>
+        <Param val="rgb" valType="str" updates="None" name="colorSpace"/>
+        <Param val="" valType="str" updates="constant" name="desc"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="code" updates="None" name="forceNonSlip"/>
+        <Param val="trial" valType="code" updates="None" name="name"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="constant" name="skipIf"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
+      </RoutineSettingsComponent>
+      <PolygonComponent name="fixation" plugin="None">
+        <Param val="center" valType="str" updates="constant" name="anchor"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="False" valType="code" updates="constant" name="draggable"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="white" valType="color" updates="constant" name="fillColor"/>
+        <Param val="linear" valType="str" updates="constant" name="interpolate"/>
+        <Param val="white" valType="color" updates="constant" name="lineColor"/>
+        <Param val="1" valType="num" updates="constant" name="lineWidth"/>
+        <Param val="4" valType="int" updates="constant" name="nVertices"/>
+        <Param val="fixation" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="cross" valType="str" updates="None" name="shape"/>
+        <Param val="(32, 32)" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="ITI" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="foreperiod + RESP_DEADLINE" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="pix" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="list" updates="constant" name="vertices"/>
+      </PolygonComponent>
+      <PolygonComponent name="target" plugin="None">
+        <Param val="center" valType="str" updates="constant" name="anchor"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="False" valType="code" updates="constant" name="draggable"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="white" valType="color" updates="constant" name="fillColor"/>
+        <Param val="linear" valType="str" updates="constant" name="interpolate"/>
+        <Param val="white" valType="color" updates="constant" name="lineColor"/>
+        <Param val="1" valType="num" updates="constant" name="lineWidth"/>
+        <Param val="4" valType="int" updates="constant" name="nVertices"/>
+        <Param val="target" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(targetX * targetEccPix, 0)" valType="list" updates="set every repeat" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="circle" valType="str" updates="None" name="shape"/>
+        <Param val="(targetSizePix, targetSizePix)" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="ITI + foreperiod" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="RESP_DEADLINE" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="pix" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="list" updates="constant" name="vertices"/>
+      </PolygonComponent>
+      <KeyboardComponent name="resp" plugin="None">
+        <Param val="'7', '2'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="$corrAns" valType="str" updates="constant" name="correctAns"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="resp" valType="code" updates="None" name="name"/>
+        <Param val="press" valType="str" updates="constant" name="registerOn"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="ITI + foreperiod" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="RESP_DEADLINE" valType="code" updates="constant" name="stopVal"/>
+        <Param val="first key" valType="str" updates="constant" name="store"/>
+        <Param val="True" valType="bool" updates="constant" name="storeCorrect"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+      </KeyboardComponent>
+      <CodeComponent name="trialCode" plugin="None">
+        <Param val="# ---- display geometry: 1920x1080 px, 60.6 cm wide, 95 cm away ----&amp;#10;import math&amp;#10;SCREEN_W_PX, SCREEN_W_CM, VIEW_DIST_CM = 1920, 60.6, 95.0&amp;#10;PIX_PER_DEG = SCREEN_W_PX / (2 * math.degrees(math.atan(SCREEN_W_CM / 2 / VIEW_DIST_CM)))&amp;#10;targetEccPix = round(6.0 * PIX_PER_DEG)    # 6 deg left/right of centre&amp;#10;targetSizePix = round(1.5 * PIX_PER_DEG)   # 1.5 deg diameter&amp;#10;&amp;#10;# ---- timing (s) ----&amp;#10;ITI = 0.5                       # blank screen before the fixation cross&amp;#10;FOREPERIOD_MIN, FOREPERIOD_MAX = 0.8, 1.5&amp;#10;RESP_DEADLINE = 1.5             # target + response window&amp;#10;" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="foreperiod = FOREPERIOD_MIN + random() * (FOREPERIOD_MAX - FOREPERIOD_MIN)&amp;#10;thisExp.addData('foreperiod', foreperiod)&amp;#10;reset_trigger()&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Py" valType="str" updates="None" name="Code Type"/>
+        <Param val="# Pixel Mode B onset triggers. This component sits AFTER the stimuli, so on&amp;#10;# the frame a stimulus starts (frameNStart == frameN) the trigger is drawn&amp;#10;# on the same flip; tick_trigger() returns the pixel to black next frame.&amp;#10;tick_trigger()&amp;#10;if fixation.status == STARTED and fixation.frameNStart == frameN:&amp;#10;    send_trigger(TRIG_FIXATION, 'fixation')&amp;#10;if target.status == STARTED and target.frameNStart == frameN:&amp;#10;    send_trigger(TRIG_TARGET_L if targetSide == 'left' else TRIG_TARGET_R, 'target')&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="reset_trigger()&amp;#10;timeout = int(resp.keys in ('', [], None))&amp;#10;thisExp.addData('timeout', timeout)&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="trialCode" valType="code" updates="None" name="name"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="thanks">
+      <RoutineSettingsComponent name="thanks" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit"/>
+        <Param val="" valType="str" updates="None" name="backgroundImg"/>
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color"/>
+        <Param val="rgb" valType="str" updates="None" name="colorSpace"/>
+        <Param val="" valType="str" updates="constant" name="desc"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="code" updates="None" name="forceNonSlip"/>
+        <Param val="thanks" valType="code" updates="None" name="name"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="constant" name="skipIf"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
+      </RoutineSettingsComponent>
+      <TextComponent name="thanksText" plugin="None">
+        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="False" valType="code" updates="constant" name="draggable"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="32" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="thanksText" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="3.0" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="Thank you!&amp;#10;&amp;#10;The task is complete." valType="str" updates="constant" name="text"/>
+        <Param val="pix" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="1400" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+    </Routine>
+  </Routines>
+  <Flow>
+    <Routine name="instruct"/>
+    <LoopInitiator loopType="TrialHandler" name="trials">
+      <Param name="Selected rows" updates="None" val="" valType="code"/>
+      <Param name="conditions" updates="None" val="[OrderedDict({'targetSide': 'left', 'targetX': np.int64(-1), 'corrAns': np.int64(7)}), OrderedDict({'targetSide': 'right', 'targetX': np.int64(1), 'corrAns': np.int64(2)})]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="conditions.csv" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="code"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="20" valType="code"/>
+      <Param name="name" updates="None" val="trials" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="trial"/>
+    <LoopTerminator name="trials"/>
+    <Routine name="thanks"/>
+  </Flow>
+</PsychoPy2experiment>

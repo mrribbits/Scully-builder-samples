@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# PsychoPy run output (participant data stays out of the repo)
+data/
+results/
+*.psydat
+*.log
+*.edf
+*.EDF
+
+# Scripts Builder generates from the .psyexp on every run/compile
+*_lastrun.py
+ChoiceRT_*/ChoiceRT_*.py
+
+# Python
+__pycache__/
+*.pyc

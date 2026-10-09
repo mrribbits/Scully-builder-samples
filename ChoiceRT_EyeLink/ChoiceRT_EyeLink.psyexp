@@ -1,0 +1,607 @@
+<?xml version="1.0" ?>
+<PsychoPy2experiment encoding="utf-8" version="2026.2.3">
+  <Settings>
+    <Param val="ptb" valType="str" updates="None" name="Audio lib" />
+    <Param val="" valType="str" updates="None" name="Completed URL" />
+    <Param val="auto" valType="str" updates="None" name="Data file delimiter" />
+    <Param val="os.path.join(session_folder, '%s_%s_%s' % (expInfo['participant'], expName, expInfo['date']))" valType="code" updates="None" name="Data filename" />
+    <Param val="False" valType="bool" updates="None" name="Enable Escape" />
+    <Param val="" valType="str" updates="None" name="End Message" />
+    <Param val="{'participant': '', 'session': '01'}" valType="code" updates="None" name="Experiment info" />
+    <Param val="True" valType="bool" updates="None" name="Force stereo" />
+    <Param val="True" valType="bool" updates="None" name="Full-screen window" />
+    <Param val="html" valType="str" updates="None" name="HTML path" />
+    <Param val="" valType="str" updates="None" name="Incomplete URL" />
+    <Param val="testMonitor" valType="str" updates="None" name="Monitor" />
+    <Param val="[]" valType="list" updates="None" name="Resources" />
+    <Param val="False" valType="bool" updates="None" name="Save csv file" />
+    <Param val="False" valType="bool" updates="None" name="Save excel file" />
+    <Param val="False" valType="bool" updates="None" name="Save hdf5 file" />
+    <Param val="True" valType="bool" updates="None" name="Save log file" />
+    <Param val="True" valType="bool" updates="None" name="Save psydat file" />
+    <Param val="True" valType="bool" updates="None" name="Save wide csv file" />
+    <Param val="1" valType="num" updates="None" name="Screen" />
+    <Param val="True" valType="bool" updates="None" name="Show info dlg" />
+    <Param val="False" valType="bool" updates="None" name="Show mouse" />
+    <Param val="pix" valType="str" updates="None" name="Units" />
+    <Param val="" valType="str" updates="None" name="Use version" />
+    <Param val="[1920, 1080]" valType="code" updates="None" name="Window size (pixels)" />
+    <Param val="none" valType="str" updates="None" name="backgroundFit" />
+    <Param val="" valType="str" updates="None" name="backgroundImg" />
+    <Param val="avg" valType="str" updates="None" name="blendMode" />
+    <Param val="float" valType="str" updates="None" name="clockFormat" />
+    <Param val="{'thisRow.t': 'priority.CRITICAL', 'expName': 'priority.LOW'}" valType="dict" updates="None" name="colPriority" />
+    <Param val="" valType="str" updates="None" name="color" />
+    <Param val="rgb" valType="str" updates="None" name="colorSpace" />
+    <Param val="warning" valType="code" updates="None" name="consoleLoggingLevel" />
+    <Param val="ChoiceRT_EyeLink" valType="str" updates="None" name="expName" />
+    <Param val="" valType="str" updates="None" name="expVersion" />
+    <Param val="on Sync" valType="str" updates="None" name="exportHTML" />
+    <Param val="None" valType="str" updates="None" name="eyetracker" />
+    <Param val="120" valType="code" updates="None" name="frameRate" />
+    <Param val="Attempting to measure frame rate of screen, please wait..." valType="str" updates="None" name="frameRateMsg" />
+    <Param val="PsychToolbox" valType="str" updates="None" name="keyboardBackend" />
+    <Param val="exp" valType="code" updates="None" name="logging level" />
+    <Param val="True" valType="bool" updates="None" name="measureFrameRate" />
+    <Param val="['MIDDLE_BUTTON']" valType="list" updates="None" name="mgBlink" />
+    <Param val="CONTINUOUS" valType="str" updates="None" name="mgMove" />
+    <Param val="0.5" valType="num" updates="None" name="mgSaccade" />
+    <Param val="1" valType="code" updates="None" name="runMode" />
+    <Param val="False" valType="bool" updates="None" name="rush" />
+    <Param val="time" valType="str" updates="None" name="sortColumns" />
+    <Param val="pyglet" valType="str" updates="None" name="winBackend" />
+  </Settings>
+  <Routines>
+    <Routine name="eyelinkSetup">
+      <RoutineSettingsComponent name="eyelinkSetup" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit" />
+        <Param val="" valType="str" updates="None" name="backgroundImg" />
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color" />
+        <Param val="rgb" valType="str" updates="None" name="colorSpace" />
+        <Param val="" valType="str" updates="constant" name="desc" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="False" valType="code" updates="None" name="forceNonSlip" />
+        <Param val="eyelinkSetup" valType="code" updates="None" name="name" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="code" updates="constant" name="skipIf" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="" valType="code" updates="constant" name="stopVal" />
+        <Param val="False" valType="bool" updates="None" name="useWindowParams" />
+      </RoutineSettingsComponent>
+      <CodeComponent name="elConfig" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine" />
+        <Param val="# --- EyeLink 1000 Plus, Remote Mode, 500 Hz (MEG lab) ---&amp;#10;# The Initialize component (below) has already connected to the Host PC.&amp;#10;# Remote mode itself (camera mount / &quot;Desktop - Remote&quot; configuration and the&amp;#10;# forehead target sticker) is selected on the Host PC Set Options screen.&amp;#10;el_tracker = pylink.getEYELINK()&amp;#10;if not dummy_mode:&amp;#10;    el_tracker.setOfflineMode()&amp;#10;    # sampling rate: Remote mode on the 1000 Plus runs at up to 500 Hz&amp;#10;    el_tracker.sendCommand(&quot;sample_rate 500&quot;)&amp;#10;    # Uncomment to force the camera configuration from the script instead of&amp;#10;    # the Host PC (RTABLER = desktop mount, remote, monocular)&amp;#10;    # el_tracker.sendCommand(&quot;elcl_select_configuration = RTABLER&quot;)&amp;#10;    el_tracker.sendMessage(&quot;SESSION_CONFIG remote_mode sample_rate_500&quot;)" valType="extendedCode" updates="constant" name="Begin Routine" />
+        <Param val="Py" valType="str" updates="None" name="Code Type" />
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame" />
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame" />
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine" />
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="elConfig" valType="code" updates="None" name="name" />
+      </CodeComponent>
+      <TextComponent name="elInstructions" plugin="None">
+        <Param val="white" valType="color" updates="constant" name="color" />
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace" />
+        <Param val="1" valType="num" updates="constant" name="contrast" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="False" valType="code" updates="constant" name="draggable" />
+        <Param val="" valType="num" updates="None" name="durationEstim" />
+        <Param val="None" valType="str" updates="constant" name="flip" />
+        <Param val="Open Sans" valType="str" updates="constant" name="font" />
+        <Param val="LTR" valType="str" updates="None" name="languageStyle" />
+        <Param val="36" valType="num" updates="constant" name="letterHeight" />
+        <Param val="elInstructions" valType="code" updates="None" name="name" />
+        <Param val="" valType="num" updates="constant" name="opacity" />
+        <Param val="0" valType="num" updates="constant" name="ori" />
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="num" updates="None" name="startEstim" />
+        <Param val="time (s)" valType="str" updates="None" name="startType" />
+        <Param val="0" valType="num" updates="None" name="startVal" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="" valType="num" updates="constant" name="stopVal" />
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh" />
+        <Param val="Eye tracker setup&#10;&#10;Please keep your head still and look at the screen.&#10;&#10;We will now calibrate the eye tracker: follow the dot with your eyes and look at its centre until it moves.&#10;&#10;(Experimenter: press SPACE to enter Camera Setup.&#10;Enter = camera image, C = calibrate, V = validate, O = continue to the task.)" valType="str" updates="constant" name="text" />
+        <Param val="pix" valType="str" updates="None" name="units" />
+        <Param val="" valType="code" updates="None" name="validator" />
+        <Param val="1500" valType="num" updates="constant" name="wrapWidth" />
+      </TextComponent>
+      <KeyboardComponent name="key_setup" plugin="None">
+        <Param val="&quot;space&quot;" valType="list" updates="constant" name="allowedKeys" />
+        <Param val="" valType="str" updates="constant" name="correctAns" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="True" valType="bool" updates="constant" name="discard previous" />
+        <Param val="" valType="num" updates="None" name="durationEstim" />
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine" />
+        <Param val="key_setup" valType="code" updates="None" name="name" />
+        <Param val="press" valType="str" updates="constant" name="registerOn" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="num" updates="None" name="startEstim" />
+        <Param val="time (s)" valType="str" updates="None" name="startType" />
+        <Param val="0" valType="num" updates="None" name="startVal" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="" valType="num" updates="constant" name="stopVal" />
+        <Param val="last key" valType="str" updates="constant" name="store" />
+        <Param val="False" valType="bool" updates="constant" name="storeCorrect" />
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh" />
+      </KeyboardComponent>
+      <InitializeConnection name="Initialize" plugin="psychopy-eyelink">
+        <Param val="False" valType="bool" updates="None" name="disableEyeLinkAudio" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="False" valType="bool" updates="None" name="dummyMode" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="100.1.1.1" valType="str" updates="None" name="hostAddress" />
+        <Param val="Initialize" valType="code" updates="None" name="name" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="pix" valType="str" updates="constant" plugin="psychopy-eyelink" name="screenUnitType" />
+        <Param val="" valType="code" updates="None" name="startEstim" />
+        <Param val="time (s)" valType="str" updates="None" name="startType" />
+        <Param val="0.0" valType="code" updates="None" name="startVal" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="0.001" valType="code" updates="constant" name="stopVal" />
+        <Param val="False" valType="bool" updates="None" name="syncScreenRefresh" />
+        <Param val="False" valType="bool" updates="None" name="useCustomHostIP" />
+      </InitializeConnection>
+      <CameraSetup name="CameraSetup" plugin="psychopy-eyelink">
+        <Param val="win.color" valType="str" updates="None" name="backgroundColor" />
+        <Param val="'qbeep.wav','type.wav','error.wav'" valType="str" updates="None" name="calibrationFilenames" />
+        <Param val="defaults" valType="str" updates="constant" name="calibrationSounds" />
+        <Param val="HV13" valType="str" updates="constant" name="calibrationType" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="(1,1,1)" valType="str" updates="None" name="foregroundColor" />
+        <Param val="CameraSetup" valType="code" updates="None" name="name" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="code" updates="None" name="startEstim" />
+        <Param val="time (s)" valType="str" updates="None" name="startType" />
+        <Param val="0.0" valType="code" updates="None" name="startVal" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="0.001" valType="code" updates="constant" name="stopVal" />
+        <Param val="False" valType="bool" updates="None" name="syncScreenRefresh" />
+        <Param val="images/fixTarget.bmp" valType="str" updates="None" name="targetFilename" />
+        <Param val="24" valType="str" updates="None" name="targetSize" />
+        <Param val="picture" valType="str" updates="constant" name="targetType" />
+      </CameraSetup>
+    </Routine>
+    <Routine name="instruct">
+      <RoutineSettingsComponent name="instruct" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit" />
+        <Param val="" valType="str" updates="None" name="backgroundImg" />
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color" />
+        <Param val="rgb" valType="str" updates="None" name="colorSpace" />
+        <Param val="" valType="str" updates="constant" name="desc" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="False" valType="code" updates="None" name="forceNonSlip" />
+        <Param val="instruct" valType="code" updates="None" name="name" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="code" updates="constant" name="skipIf" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="" valType="code" updates="constant" name="stopVal" />
+        <Param val="False" valType="bool" updates="None" name="useWindowParams" />
+      </RoutineSettingsComponent>
+      <CodeComponent name="taskStartMsg" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine" />
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Routine" />
+        <Param val="Py" valType="str" updates="None" name="Code Type" />
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame" />
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame" />
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine" />
+        <Param val="# custom EDF message marking the start of the task (sent before the drift check)&amp;#10;el_tracker = pylink.getEYELINK()&amp;#10;el_tracker.sendMessage('TASK_START')" valType="extendedCode" updates="constant" name="End Routine" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="taskStartMsg" valType="code" updates="None" name="name" />
+      </CodeComponent>
+      <TextComponent name="taskInstructions" plugin="None">
+        <Param val="white" valType="color" updates="constant" name="color" />
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace" />
+        <Param val="1" valType="num" updates="constant" name="contrast" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="False" valType="code" updates="constant" name="draggable" />
+        <Param val="" valType="num" updates="None" name="durationEstim" />
+        <Param val="None" valType="str" updates="constant" name="flip" />
+        <Param val="Open Sans" valType="str" updates="constant" name="font" />
+        <Param val="LTR" valType="str" updates="None" name="languageStyle" />
+        <Param val="36" valType="num" updates="constant" name="letterHeight" />
+        <Param val="taskInstructions" valType="code" updates="None" name="name" />
+        <Param val="" valType="num" updates="constant" name="opacity" />
+        <Param val="0" valType="num" updates="constant" name="ori" />
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="num" updates="None" name="startEstim" />
+        <Param val="time (s)" valType="str" updates="None" name="startType" />
+        <Param val="0" valType="num" updates="None" name="startVal" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="" valType="num" updates="constant" name="stopVal" />
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh" />
+        <Param val="Reaction time task&#10;&#10;Keep your eyes on the cross in the centre of the screen.&#10;&#10;A white dot will appear on the LEFT or RIGHT.&#10;&#10;LEFT dot  -&gt;  LEFT index finger&#10;RIGHT dot  -&gt;  RIGHT index finger&#10;&#10;Respond as quickly and accurately as you can.&#10;&#10;First, look at the target dot so we can check the eye tracker.&#10;&#10;Press either button when ready." valType="str" updates="constant" name="text" />
+        <Param val="pix" valType="str" updates="None" name="units" />
+        <Param val="" valType="code" updates="None" name="validator" />
+        <Param val="1500" valType="num" updates="constant" name="wrapWidth" />
+      </TextComponent>
+      <KeyboardComponent name="ready" plugin="None">
+        <Param val="&quot;7&quot;,&quot;2&quot;,&quot;space&quot;" valType="list" updates="constant" name="allowedKeys" />
+        <Param val="" valType="str" updates="constant" name="correctAns" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="True" valType="bool" updates="constant" name="discard previous" />
+        <Param val="" valType="num" updates="None" name="durationEstim" />
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine" />
+        <Param val="ready" valType="code" updates="None" name="name" />
+        <Param val="press" valType="str" updates="constant" name="registerOn" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="num" updates="None" name="startEstim" />
+        <Param val="time (s)" valType="str" updates="None" name="startType" />
+        <Param val="0" valType="num" updates="None" name="startVal" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="" valType="num" updates="constant" name="stopVal" />
+        <Param val="last key" valType="str" updates="constant" name="store" />
+        <Param val="False" valType="bool" updates="constant" name="storeCorrect" />
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh" />
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="eyelinkDriftCheck">
+      <RoutineSettingsComponent name="eyelinkDriftCheck" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit" />
+        <Param val="" valType="str" updates="None" name="backgroundImg" />
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color" />
+        <Param val="rgb" valType="str" updates="None" name="colorSpace" />
+        <Param val="" valType="str" updates="constant" name="desc" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="False" valType="code" updates="None" name="forceNonSlip" />
+        <Param val="eyelinkDriftCheck" valType="code" updates="None" name="name" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="code" updates="constant" name="skipIf" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="" valType="code" updates="constant" name="stopVal" />
+        <Param val="False" valType="bool" updates="None" name="useWindowParams" />
+      </RoutineSettingsComponent>
+      <DriftCheck name="DriftCheck" plugin="psychopy-eyelink">
+        <Param val="win.color" valType="str" updates="None" name="backgroundColor" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="'qbeep.wav','type.wav','error.wav'" valType="str" updates="None" name="driftCheckFilenames" />
+        <Param val="defaults" valType="str" updates="constant" name="driftCheckSounds" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="(1,1,1)" valType="str" updates="None" name="foregroundColor" />
+        <Param val="DriftCheck" valType="code" updates="None" name="name" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="pix" valType="str" updates="constant" name="screenUnitType" />
+        <Param val="" valType="code" updates="None" name="startEstim" />
+        <Param val="time (s)" valType="str" updates="None" name="startType" />
+        <Param val="0.0" valType="code" updates="None" name="startVal" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="0.001" valType="code" updates="constant" name="stopVal" />
+        <Param val="False" valType="bool" updates="None" name="syncScreenRefresh" />
+        <Param val="images/fixTarget.bmp" valType="str" updates="None" name="targetFilename" />
+        <Param val="[0,0]" valType="str" updates="None" name="targetPosition" />
+        <Param val="24" valType="str" updates="None" name="targetSize" />
+        <Param val="picture" valType="str" updates="constant" name="targetType" />
+      </DriftCheck>
+    </Routine>
+    <Routine name="eyelinkStartRecording">
+      <RoutineSettingsComponent name="eyelinkStartRecording" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit" />
+        <Param val="" valType="str" updates="None" name="backgroundImg" />
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color" />
+        <Param val="rgb" valType="str" updates="None" name="colorSpace" />
+        <Param val="" valType="str" updates="constant" name="desc" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="False" valType="code" updates="None" name="forceNonSlip" />
+        <Param val="eyelinkStartRecording" valType="code" updates="None" name="name" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="code" updates="constant" name="skipIf" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="" valType="code" updates="constant" name="stopVal" />
+        <Param val="False" valType="bool" updates="None" name="useWindowParams" />
+      </RoutineSettingsComponent>
+      <HostDrawing name="HostDrawing" plugin="psychopy-eyelink">
+        <Param val="'draw_box %d %d %d %d 2' % (scn_width/2.0 - targetEccPix - targetSizePix/2.0, scn_height/2.0 - targetSizePix/2.0, scn_width/2.0 - targetEccPix + targetSizePix/2.0, scn_height/2.0 + targetSizePix/2.0); 'draw_box %d %d %d %d 2' % (scn_width/2.0 + targetEccPix - targetSizePix/2.0, scn_height/2.0 - targetSizePix/2.0, scn_width/2.0 + targetEccPix + targetSizePix/2.0, scn_height/2.0 + targetSizePix/2.0)" valType="str" updates="None" name="additionalDrawCommands" />
+        <Param val="fixation" valType="str" updates="None" name="componentsForDrawingToHostBackdrop" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="" valType="str" updates="None" name="imagesToHostBackdrop" />
+        <Param val="HostDrawing" valType="code" updates="None" name="name" />
+        <Param val="&quot;Trial %d/%d&quot; % (trials.thisN + 1, trials.nTotal)" valType="str" updates="None" name="recordStatusMessage" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="code" updates="None" name="startEstim" />
+        <Param val="time (s)" valType="str" updates="None" name="startType" />
+        <Param val="0.0" valType="code" updates="None" name="startVal" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="0.001" valType="code" updates="constant" name="stopVal" />
+        <Param val="False" valType="bool" updates="None" name="syncScreenRefresh" />
+      </HostDrawing>
+      <StartRecording name="StartRecord" plugin="psychopy-eyelink">
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="StartRecord" valType="code" updates="None" name="name" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="code" updates="None" name="startEstim" />
+        <Param val="time (s)" valType="str" updates="None" name="startType" />
+        <Param val="0.0" valType="code" updates="None" name="startVal" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="0.001" valType="code" updates="constant" name="stopVal" />
+        <Param val="False" valType="bool" updates="None" name="syncScreenRefresh" />
+      </StartRecording>
+    </Routine>
+    <Routine name="trial">
+      <RoutineSettingsComponent name="trial" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit" />
+        <Param val="" valType="str" updates="None" name="backgroundImg" />
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color" />
+        <Param val="rgb" valType="str" updates="None" name="colorSpace" />
+        <Param val="" valType="str" updates="constant" name="desc" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="False" valType="code" updates="None" name="forceNonSlip" />
+        <Param val="trial" valType="code" updates="None" name="name" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="code" updates="constant" name="skipIf" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="" valType="code" updates="constant" name="stopVal" />
+        <Param val="False" valType="bool" updates="None" name="useWindowParams" />
+      </RoutineSettingsComponent>
+      <CodeComponent name="trialCode" plugin="None">
+        <Param val="# Display geometry: 1920x1080 px, 60.6 cm wide, 95 cm viewing distance&amp;#10;# 1 deg of visual angle ~= 52.5 px&amp;#10;pxPerDeg = 52.534&amp;#10;targetEccPix = 315    # 6 deg left/right of fixation&amp;#10;targetSizePix = 79   # 1.5 deg diameter" valType="extendedCode" updates="constant" name="Before Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment" />
+        <Param val="# ---- trial-by-trial log: &lt;data file name&gt;_trials_log.tsv (in the session results folder) ----&amp;#10;rtLogPath = thisExp.dataFileName + '_trials_log.tsv'&amp;#10;rtLogCols = ['participant', 'session', 'date', 'edf_file', 'trial',&amp;#10;             'eyelink_trialid', 'target_side', 'target_x_pix', 'corr_ans',&amp;#10;             'foreperiod_s', 'fixation_onset_s', 'target_onset_s', 'resp_key', 'rt_s',&amp;#10;             'correct', 'timeout']&amp;#10;os.makedirs(os.path.dirname(os.path.abspath(rtLogPath)), exist_ok=True)&amp;#10;rtLogFile = open(rtLogPath, 'w', encoding='utf-8')&amp;#10;rtLogFile.write('\t'.join(rtLogCols) + '\n')&amp;#10;rtLogFile.flush()" valType="extendedCode" updates="constant" name="Begin Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine" />
+        <Param val="# jittered foreperiod (fixation -&gt; target), uniform 0.8-1.5 s&amp;#10;foreperiod = 0.8 + random() * 0.7&amp;#10;thisExp.addData('foreperiod', foreperiod)" valType="extendedCode" updates="constant" name="Begin Routine" />
+        <Param val="Py" valType="str" updates="None" name="Code Type" />
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame" />
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame" />
+        <Param val="rtLogFile.close()" valType="extendedCode" updates="constant" name="End Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine" />
+        <Param val="# behavioural summary in the PsychoPy data file&amp;#10;if resp.keys in ('', [], None):&amp;#10;    respKey, respRT, respCorr, timeout = 'None', -1, 0, 1&amp;#10;else:&amp;#10;    respKey, respRT, respCorr, timeout = resp.keys, resp.rt, resp.corr, 0&amp;#10;thisExp.addData('resp.timeout', timeout)&amp;#10;&amp;#10;# custom EDF messages (MarkEvents also logs resp RT/keys/corr as TRIAL_VARs)&amp;#10;el_tracker = pylink.getEYELINK()&amp;#10;el_tracker.sendMessage('TRIAL_SUMMARY trial=%d side=%s key=%s rt=%.4f corr=%d timeout=%d'&amp;#10;                       % (trials.thisN + 1, targetSide, respKey, respRT, respCorr, timeout))&amp;#10;el_tracker.sendMessage('!V TRIAL_VAR timeout %d' % timeout)&amp;#10;&amp;#10;# one row in the trial log (flushed every trial so an aborted run keeps its rows)&amp;#10;def _fmt(x, nd=4):&amp;#10;    return 'NA' if x is None else ('%.*f' % (nd, x) if isinstance(x, float) else str(x))&amp;#10;rtLogRow = [expInfo['participant'], expInfo['session'], expInfo['date'],&amp;#10;            session_identifier + '.EDF', trials.thisN + 1, trial_index, targetSide, int(targetX * targetEccPix), corrAns,&amp;#10;            _fmt(foreperiod), _fmt(fixation.tStartRefresh), _fmt(target.tStartRefresh),&amp;#10;            respKey if not timeout else 'NA', _fmt(respRT) if not timeout else 'NA',&amp;#10;            respCorr, timeout]&amp;#10;rtLogFile.write('\t'.join(_fmt(v) for v in rtLogRow) + '\n')&amp;#10;rtLogFile.flush()" valType="extendedCode" updates="constant" name="End Routine" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="trialCode" valType="code" updates="None" name="name" />
+      </CodeComponent>
+      <PolygonComponent name="fixation" plugin="None">
+        <Param val="center" valType="str" updates="constant" name="anchor" />
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace" />
+        <Param val="1" valType="num" updates="constant" name="contrast" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="False" valType="code" updates="constant" name="draggable" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="white" valType="color" updates="constant" name="fillColor" />
+        <Param val="linear" valType="str" updates="constant" name="interpolate" />
+        <Param val="white" valType="color" updates="constant" name="lineColor" />
+        <Param val="1" valType="num" updates="constant" name="lineWidth" />
+        <Param val="4" valType="int" updates="constant" name="nVertices" />
+        <Param val="fixation" valType="code" updates="None" name="name" />
+        <Param val="" valType="num" updates="constant" name="opacity" />
+        <Param val="0" valType="num" updates="constant" name="ori" />
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="cross" valType="str" updates="None" name="shape" />
+        <Param val="(32, 32)" valType="list" updates="constant" name="size" />
+        <Param val="" valType="code" updates="None" name="startEstim" />
+        <Param val="time (s)" valType="str" updates="None" name="startType" />
+        <Param val="0.2" valType="code" updates="None" name="startVal" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="" valType="code" updates="constant" name="stopVal" />
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh" />
+        <Param val="pix" valType="str" updates="None" name="units" />
+        <Param val="" valType="code" updates="None" name="validator" />
+        <Param val="" valType="list" updates="constant" name="vertices" />
+      </PolygonComponent>
+      <PolygonComponent name="target" plugin="None">
+        <Param val="center" valType="str" updates="constant" name="anchor" />
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace" />
+        <Param val="1" valType="num" updates="constant" name="contrast" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="False" valType="code" updates="constant" name="draggable" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="white" valType="color" updates="constant" name="fillColor" />
+        <Param val="linear" valType="str" updates="constant" name="interpolate" />
+        <Param val="white" valType="color" updates="constant" name="lineColor" />
+        <Param val="1" valType="num" updates="constant" name="lineWidth" />
+        <Param val="4" valType="int" updates="constant" name="nVertices" />
+        <Param val="target" valType="code" updates="None" name="name" />
+        <Param val="" valType="num" updates="constant" name="opacity" />
+        <Param val="0" valType="num" updates="constant" name="ori" />
+        <Param val="(targetX * targetEccPix, 0)" valType="list" updates="set every repeat" name="pos" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="circle" valType="str" updates="None" name="shape" />
+        <Param val="(targetSizePix, targetSizePix)" valType="list" updates="constant" name="size" />
+        <Param val="" valType="code" updates="None" name="startEstim" />
+        <Param val="time (s)" valType="str" updates="None" name="startType" />
+        <Param val="0.2 + foreperiod" valType="code" updates="None" name="startVal" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="1.5" valType="code" updates="constant" name="stopVal" />
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh" />
+        <Param val="pix" valType="str" updates="None" name="units" />
+        <Param val="" valType="code" updates="None" name="validator" />
+        <Param val="" valType="list" updates="constant" name="vertices" />
+      </PolygonComponent>
+      <KeyboardComponent name="resp" plugin="None">
+        <Param val="&quot;7&quot;,&quot;2&quot;" valType="list" updates="constant" name="allowedKeys" />
+        <Param val="$corrAns" valType="str" updates="constant" name="correctAns" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="True" valType="bool" updates="constant" name="discard previous" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine" />
+        <Param val="resp" valType="code" updates="None" name="name" />
+        <Param val="press" valType="str" updates="constant" name="registerOn" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="code" updates="None" name="startEstim" />
+        <Param val="time (s)" valType="str" updates="None" name="startType" />
+        <Param val="0.2 + foreperiod" valType="code" updates="None" name="startVal" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="1.5" valType="code" updates="constant" name="stopVal" />
+        <Param val="first key" valType="str" updates="constant" name="store" />
+        <Param val="True" valType="bool" updates="constant" name="storeCorrect" />
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh" />
+      </KeyboardComponent>
+      <CodeComponent name="elMessages" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine" />
+        <Param val="el_tracker = pylink.getEYELINK()&amp;#10;targetMsgSent = False" valType="extendedCode" updates="constant" name="Begin Routine" />
+        <Param val="Py" valType="str" updates="None" name="Code Type" />
+        <Param val="# This component sits below the target, so on the frame the target is set to&amp;#10;# STARTED the message is queued for the same flip that first draws it.&amp;#10;if not targetMsgSent and target.status == STARTED:&amp;#10;    win.callOnFlip(el_tracker.sendMessage, 'TARGET_ONSET_%s' % targetSide.upper())&amp;#10;    targetMsgSent = True" valType="extendedCode" updates="constant" name="Each Frame" />
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame" />
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine" />
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="elMessages" valType="code" updates="None" name="name" />
+      </CodeComponent>
+      <MarkEvents name="MarkEvents" plugin="psychopy-eyelink">
+        <Param val="" valType="str" updates="None" name="componentsForEyeLinkInterestAreaMessages" />
+        <Param val="resp" valType="str" updates="None" name="componentsForEyeLinkRespEventMessages" />
+        <Param val="" valType="str" updates="None" name="componentsForEyeLinkStimDVDrawingMessages" />
+        <Param val="fixation,target" valType="str" updates="None" name="componentsForEyeLinkStimEventMessages" />
+        <Param val="" valType="str" updates="None" name="componentsForEyeLinkTargetPositionMessages" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="True" valType="bool" updates="None" name="includeAllEventMarkedComponentsForDVDrawingMessages" />
+        <Param val="True" valType="bool" updates="None" name="includeAllEventMarkedComponentsForIAMessages" />
+        <Param val="20" valType="str" updates="None" name="interestAreaMargins" />
+        <Param val="Ellipse" valType="str" updates="constant" name="interestAreaShape" />
+        <Param val="MarkEvents" valType="code" updates="None" name="name" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="False" valType="bool" updates="None" name="sendTrialOnsetOffsetMessages" />
+        <Param val="False" valType="bool" updates="None" name="sendVideoFrameMessages" />
+        <Param val="" valType="code" updates="None" name="startEstim" />
+        <Param val="time (s)" valType="str" updates="None" name="startType" />
+        <Param val="0.0" valType="code" updates="None" name="startVal" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="0.001" valType="code" updates="constant" name="stopVal" />
+        <Param val="False" valType="bool" updates="None" name="syncScreenRefresh" />
+        <Param val="targetSide,targetX,corrAns,foreperiod" valType="str" updates="None" name="trialConditionVariablesForEyeLinkLogging" />
+        <Param val="True" valType="bool" updates="None" name="useQuitKeys" />
+      </MarkEvents>
+    </Routine>
+    <Routine name="eyelinkStopRecording">
+      <RoutineSettingsComponent name="eyelinkStopRecording" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit" />
+        <Param val="" valType="str" updates="None" name="backgroundImg" />
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color" />
+        <Param val="rgb" valType="str" updates="None" name="colorSpace" />
+        <Param val="" valType="str" updates="constant" name="desc" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="False" valType="code" updates="None" name="forceNonSlip" />
+        <Param val="eyelinkStopRecording" valType="code" updates="None" name="name" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="code" updates="constant" name="skipIf" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="" valType="code" updates="constant" name="stopVal" />
+        <Param val="False" valType="bool" updates="None" name="useWindowParams" />
+      </RoutineSettingsComponent>
+      <StopRecording name="StopRecord" plugin="psychopy-eyelink">
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="StopRecord" valType="code" updates="None" name="name" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="code" updates="None" name="startEstim" />
+        <Param val="time (s)" valType="str" updates="None" name="startType" />
+        <Param val="0.0" valType="code" updates="None" name="startVal" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="0.001" valType="code" updates="constant" name="stopVal" />
+        <Param val="False" valType="bool" updates="None" name="syncScreenRefresh" />
+      </StopRecording>
+    </Routine>
+    <Routine name="thanks">
+      <RoutineSettingsComponent name="thanks" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit" />
+        <Param val="" valType="str" updates="None" name="backgroundImg" />
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color" />
+        <Param val="rgb" valType="str" updates="None" name="colorSpace" />
+        <Param val="" valType="str" updates="constant" name="desc" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="" valType="code" updates="None" name="durationEstim" />
+        <Param val="False" valType="code" updates="None" name="forceNonSlip" />
+        <Param val="thanks" valType="code" updates="None" name="name" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="code" updates="constant" name="skipIf" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="" valType="code" updates="constant" name="stopVal" />
+        <Param val="False" valType="bool" updates="None" name="useWindowParams" />
+      </RoutineSettingsComponent>
+      <CodeComponent name="taskEndMsg" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine" />
+        <Param val="el_tracker = pylink.getEYELINK()&amp;#10;el_tracker.sendMessage('TASK_END')" valType="extendedCode" updates="constant" name="Begin Routine" />
+        <Param val="Py" valType="str" updates="None" name="Code Type" />
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame" />
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame" />
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment" />
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine" />
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="taskEndMsg" valType="code" updates="None" name="name" />
+      </CodeComponent>
+      <TextComponent name="endScreen" plugin="None">
+        <Param val="white" valType="color" updates="constant" name="color" />
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace" />
+        <Param val="1" valType="num" updates="constant" name="contrast" />
+        <Param val="False" valType="bool" updates="None" name="disabled" />
+        <Param val="False" valType="code" updates="constant" name="draggable" />
+        <Param val="" valType="num" updates="None" name="durationEstim" />
+        <Param val="None" valType="str" updates="constant" name="flip" />
+        <Param val="Open Sans" valType="str" updates="constant" name="font" />
+        <Param val="LTR" valType="str" updates="None" name="languageStyle" />
+        <Param val="36" valType="num" updates="constant" name="letterHeight" />
+        <Param val="endScreen" valType="code" updates="None" name="name" />
+        <Param val="" valType="num" updates="constant" name="opacity" />
+        <Param val="0" valType="num" updates="constant" name="ori" />
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos" />
+        <Param val="True" valType="bool" updates="None" name="saveStartStop" />
+        <Param val="" valType="num" updates="None" name="startEstim" />
+        <Param val="time (s)" valType="str" updates="None" name="startType" />
+        <Param val="0" valType="num" updates="None" name="startVal" />
+        <Param val="duration (s)" valType="str" updates="None" name="stopType" />
+        <Param val="3" valType="num" updates="constant" name="stopVal" />
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh" />
+        <Param val="All done - thank you!&#10;&#10;Please stay still while we save the data." valType="str" updates="constant" name="text" />
+        <Param val="pix" valType="str" updates="None" name="units" />
+        <Param val="" valType="code" updates="None" name="validator" />
+        <Param val="1500" valType="num" updates="constant" name="wrapWidth" />
+      </TextComponent>
+    </Routine>
+  </Routines>
+  <Flow>
+    <Routine name="eyelinkSetup" />
+    <Routine name="instruct" />
+    <Routine name="eyelinkDriftCheck" />
+    <LoopInitiator loopType="TrialHandler" name="trials">
+      <Param name="Selected rows" updates="None" val="" valType="str" />
+      <Param name="conditions" updates="None" val="[OrderedDict([('targetSide', 'left'), ('targetX', -1), ('corrAns', '7')]), OrderedDict([('targetSide', 'right'), ('targetX', 1), ('corrAns', '2')])]" valType="str" />
+      <Param name="conditionsFile" updates="None" val="conditions.csv" valType="str" />
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num" />
+      <Param name="isTrials" updates="None" val="True" valType="bool" />
+      <Param name="loopType" updates="None" val="random" valType="str" />
+      <Param name="nReps" updates="None" val="20" valType="num" />
+      <Param name="name" updates="None" val="trials" valType="code" />
+      <Param name="random seed" updates="None" val="" valType="code" />
+    </LoopInitiator>
+    <Routine name="eyelinkStartRecording" />
+    <Routine name="trial" />
+    <Routine name="eyelinkStopRecording" />
+    <LoopTerminator name="trials" />
+    <Routine name="thanks" />
+  </Flow>
+</PsychoPy2experiment>
