@@ -10,7 +10,7 @@ Keep `conditions.csv` next to the `.psyexp`. Needs `pypixxlib` in PsychoPy's Pyt
 
 ## Flow
 ```
-instruct              task instructions (press 7 or 2)           [vpixx init lives here]
+instruct              task instructions (press 7 or 2)           [VPixx setup lives here]
 trials loop (2 sides x 20 reps = 40, random)
   trial               blank 0.5 s -> fixation                    trigger 1
                       -> foreperiod U(0.8, 1.5) s -> target      trigger 2 (left) / 4 (right)
@@ -22,42 +22,62 @@ Single block. To change the number of trials, set **nReps** in the `trials` loop
 trials = 2 × nReps (half left, half right).
 
 ## Trigger codes (Pixel Mode B, blue channel)
-The patch uses `colorSpace='rgb255'`, so trigger colours are written literally as (R, G, B):
+The trigger pixel uses `colorSpace='rgb255'`, so trigger colours are written literally as
+(R, G, B):
 
 | Constant | RGB | Event |
 |---|---|---|
 | `TRIG_FIXATION` | (0, 0, 1) | fixation cross onset |
 | `TRIG_TARGET_L` | (0, 0, 2) | target onset, left |
 | `TRIG_TARGET_R` | (0, 0, 4) | target onset, right |
-| `TRIG_RESET` | (0, 0, 0) | black, all lines low |
+| `TRIG_OFF` | (0, 0, 0) | black, all lines off |
 
 Spare blue values: 8, 16, 32, 64, 128. The target trigger (2 or 4) is chosen by the trial's
 target side (`targetSide` in `conditions.csv`).
 
-Each trigger is held for `TRIG_HOLD_FRAMES` (default 1 frame = 8.33 ms ≈ 10 samples at
-1200 Hz) and the pixel is then reset to black. Responses are not pixel-triggered: use the
-button-box BNC channels (7 = left index, 2 = right index).
+Each trigger lasts one frame (8.33 ms ≈ 10 samples at 1200 Hz), then the pixel goes back to
+black. The comment at the end of `onsetTriggers` shows how to make triggers longer.
+Responses are not pixel-triggered: use the button-box BNC channels (7 = left index,
+2 = right index).
 
 The trigger edge marks the vsync at which the display *begins* scanning out the frame;
 subtract one frame (8.33 ms) if you want perceived-onset timing, as in the oddball script.
 
-## Where the code is
-- **`vpixx`** code component (instruct routine)
-  - *Before Experiment* (module level): trigger constants, `pypixxlib` import with dummy
-    fallback, and the trigger colour constants.
-  - *Begin Experiment* (inside Builder's `run()`): opens the DATAPixx3, enables Pixel Mode B,
-    defines `send_trigger`, `tick_trigger`, `reset_trigger`, `close_vpixx` (they need `win`,
-    `thisExp` and `dp`, which only exist inside `run()`), creates the 1×1 patch (auto-drawn
-    on every flip) and registers `close_vpixx` with atexit so the device is released after Esc.
-  - *End Experiment*: pixel to black, pixel mode off, device closed.
-- **`trialCode`** sits *after* the stimuli in the trial routine. On the frame a
-  stimulus starts (`frameNStart == frameN`) it calls `send_trigger`, so the trigger lands on
-  the same flip as the stimulus. `tick_trigger()` runs first every frame and resets the pixel.
-- Geometry and timing constants: Before Experiment tab of `trialCode`.
+## Code components
+Every code component starts with a header saying when it runs, what it does, and where each
+name it uses comes from. Each one has a single job:
+
+| Routine | Component | Tab(s) | Job |
+|---|---|---|---|
+| instruct | `vpixxSetup` | Before Experiment | Trigger colours; loads `pypixxlib` |
+| | | Begin Experiment | Dummy-mode decision, Run-mode check, connects to the DATAPixx3, turns on Pixel Mode B, registers clean-up, creates the trigger pixel, defines `set_trigger_pixel` / `send_trigger` |
+| trial | `stimSettings` | Before Experiment | Screen geometry and stimulus sizes in degrees → pixels |
+| | `trialSetup` | Before Experiment | Trial timing (ITI, foreperiod range, deadline) |
+| | | Begin Routine | Picks this trial's random foreperiod |
+| | | End Routine | Logs `timeout`; sets the trigger pixel black |
+| | `onsetTriggers` | Each Frame | Sends trigger 1 at fixation onset and 2/4 at target onset |
+
+### Order rules
+Builder runs a routine's components from top to bottom on every frame, so position matters:
+
+- **`trialSetup` must be above `fixation`, `target` and `resp`**: their Start/Stop times use
+  `foreperiod`, which `trialSetup` creates at the start of each trial.
+- **`onsetTriggers` must be below `fixation` and `target`**: it sees a stimulus switch on in
+  the same pass, so the trigger lands on the same screen refresh as the stimulus. Above them,
+  every trigger would be one frame late.
+- `stimSettings` and `vpixxSetup` only use the Experiment tabs, which run once per session
+  regardless of position.
+
+### Why there is no "End Experiment" code
+Builder skips End Experiment code when you press Esc. Instead, `vpixxSetup` registers
+`close_vpixx` with Python's `atexit`, which runs whenever the experiment quits, normally or
+with Esc, and turns Pixel Mode off and disconnects the DATAPixx3.
 
 ## Data columns added
-`fixation.trigger`, `fixation.vp`, `target.trigger`, `target.vp` (`.trigger` is the blue value; `.vp` is the DATAPixx3 clock at the trigger flip via `DPxGetTime`), plus `foreperiod`,
-`timeout`, `dummy_vpixx`. Builder's own `resp.keys/rt/corr` and onset times remain.
+`fixation.trigger`, `fixation.vp`, `target.trigger`, `target.vp` (`.trigger` is the blue
+value; `.vp` is the DATAPixx3 clock at the trigger flip via `DPxGetTime`), plus `foreperiod`,
+`timeout` (1 = no response before the deadline), `dummy_vpixx`. Builder's own
+`resp.keys/rt/corr` and onset times remain.
 
 ## Run mode, not Pilot mode
 Pixel Mode reads the top-left pixel of the whole screen, so the window must be full screen.
@@ -71,6 +91,8 @@ columns empty). If `pypixxlib` isn't installed it switches to dummy mode automat
 logs a warning — check the console before a real recording.
 
 ## Notes
-- Background is black so the reset value matches the screen.
+- Background is black so the trigger pixel's "off" colour matches the screen.
+- Stimulus sizes are set in degrees at the top of `stimSettings`: fixation cross 0.6°
+  (32 px), target 1.5° (79 px) at ±6° (±315 px).
 - If the response pad sends keypad codes, change allowed keys to `num_7`/`num_2` in `ready`,
   `resp` and in `conditions.csv`.

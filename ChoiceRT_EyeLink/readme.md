@@ -20,13 +20,32 @@ thanks                sends TASK_END
 
 **To change N:** open the `trials` loop and set **nReps**. Each rep is one left trial and one right trial, so N = 2 × nReps.
 
+## Code components
+Every code component starts with a comment block that says when it runs and what it does, and each line is explained.
+
+| Component (routine) | Tab(s) | Job |
+|---|---|---|
+| `elConfig` (eyelinkSetup) | Begin Routine | set 500 Hz; write SESSION_CONFIG |
+| `taskStartMsg` (instruct) | End Routine | write TASK_START |
+| `stimSettings` (trial) | Before Experiment | screen + stimulus sizes, degrees → pixels |
+| `trialSetup` (trial) | Begin / End Routine | random foreperiod; score the response; TRIAL_SUMMARY + timeout messages |
+| `targetOnsetMsg` (trial) | Begin Routine / Each Frame | TARGET_ONSET_LEFT/RIGHT on the target's first flip |
+| `trialLog` (trial) | Begin Experiment / End Routine | create the trial log; add one row per trial |
+| `taskEndMsg` (thanks) | Begin Routine | write TASK_END |
+
+**Order inside the trial routine matters.** Builder runs components from top to bottom:
+1. `stimSettings` and `trialSetup` sit above the stimuli, because the target's start time uses `foreperiod`.
+2. `targetOnsetMsg` sits below `target`.
+3. `trialLog` sits below `trialSetup`.
+4. MarkEvents stays at the bottom.
+
 ## Stimuli (1920×1080 px, 60.6 cm wide, 95 cm viewing distance → 52.5 px/deg)
 | Item | Size | Position |
 |---|---|---|
 | Fixation cross | 0.6° (32 px) | centre |
 | Target disc | 1.5° (79 px) | ±6° (±315 px) horizontally |
 
-The geometry variables live in the **Before Experiment** tab of the `trialCode` component (`targetEccPix`, `targetSizePix`).
+To change the screen size, viewing distance or stimulus sizes, edit the numbers at the top of the **Before Experiment** tab of the `stimSettings` component. Sizes are entered in degrees and converted to pixels automatically.
 
 ## Responses
 `7` = left index finger (left target) and `2` = right index finger (right target). If the MEG response pad sends keypad codes, change the allowed keys to `num_7`/`num_2` in the `resp` component and in `conditions.csv`.
@@ -45,15 +64,15 @@ Remote mode itself is chosen on the Host PC: Set Options → camera mount/config
 | Message | Sent by |
 |---|---|
 | `SESSION_CONFIG remote_mode sample_rate_500` | elConfig (session note when 500 Hz is set) |
-| `TASK_START` / `TASK_END` | instruct / thanks code |
+| `TASK_START` / `TASK_END` | taskStartMsg / taskEndMsg |
 | `TRIALID n` … `TRIAL_RESULT 0` | Start/Stop Record |
 | `<offset> fixation_ONSET`, `<offset> target_ONSET`, `*_OFFSET` | MarkEvents (flip-locked) |
-| `TARGET_ONSET_LEFT` / `TARGET_ONSET_RIGHT` | elMessages code (sent on the target's first flip; condition in the name) |
+| `TARGET_ONSET_LEFT` / `TARGET_ONSET_RIGHT` | targetOnsetMsg (sent on the target's first flip; condition in the name) |
 | `<offset> Keyboard_EVENT` (response) | MarkEvents |
 | `!V TRIAL_VAR` targetSide, targetX, corrAns, foreperiod | MarkEvents (trial condition) |
 | `!V TRIAL_VAR` Keyboard.rt(s), Keyboard.keys, Keyboard.corr | MarkEvents (response) |
-| `!V TRIAL_VAR timeout 0/1` | trialCode |
-| `TRIAL_SUMMARY trial= side= key= rt= corr= timeout=` | trialCode |
+| `!V TRIAL_VAR timeout 0/1` | trialSetup |
+| `TRIAL_SUMMARY trial= side= key= rt= corr= timeout=` | trialSetup |
 | Data Viewer drawing messages and interest areas (fixation + target; ellipse, 20 px margin) | MarkEvents |
 
 The interest-area files (`aoi/`) and drawing lists are saved in the session folder under `results/`, next to the EDF.
