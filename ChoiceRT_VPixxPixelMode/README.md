@@ -40,8 +40,16 @@ black. The comment at the end of `onsetTriggers` shows how to make triggers long
 Responses are not pixel-triggered: use the button-box BNC channels (7 = left index,
 2 = right index).
 
-The trigger edge marks the vsync at which the display *begins* scanning out the frame;
-subtract one frame (8.33 ms) if you want perceived-onset timing, as in the oddball script.
+## Display latency (projector)
+In the MEG lab, a frame appears on the projector screen **one frame (≈8.33 ms) after** the
+DATAPixx3 sends its trigger. The trigger goes out at the vsync where the frame starts
+scanning out, and the projector adds one frame of delay. So:
+- **When the target is actually visible:** trigger 2/4 time **+ 8.33 ms** (the same for
+  trigger 1 and the fixation cross).
+- **True reaction time:** `resp.rt` **− 8.33 ms**. `resp` starts timing at the flip, one
+  frame before the target is visible.
+- **The PsychoPy onset times** (`fixation.started`, `target.started`, `target.vp`) are also
+  flip times, so the same +8.33 ms applies.
 
 ## Code components
 Every code component starts with a header saying when it runs, what it does, and where each

@@ -68,6 +68,17 @@ Unused values: 8, 16, 32, 64, 128. Each trigger lasts one frame (8.3 ms ≈ 10 M
 1200 Hz); a comment in `onsetEvents` explains why. Responses are not pixel-triggered: use the
 button-box BNC channels.
 
+## Display latency (projector)
+In the MEG lab, a frame appears on the projector screen **one frame (≈8.33 ms) after** the
+DATAPixx3 sends its trigger, because the projector adds one frame of delay. In this
+experiment that only affects the picture:
+- **Tone (triggers 2/4, `TONE_ONSET_*`, `resp.rt`): no correction.** The DATAPixx3 starts the
+  tone at the same vsync it sends the trigger, and sound doesn't go through the projector.
+  So the trigger marks the real tone onset (apart from the acoustic delay to the ear, see
+  Sound), and `resp.rt` is the true time from tone onset.
+- **Fixation cross (trigger 1, `fixation_ONSET`, `fixation_onset_s`, `fixation.vp`):** the cross
+  is visible about 8.33 ms after these. Add 8.33 ms if you need its visible onset.
+
 ## Sound
 - 1000 Hz sine, 100 ms, 10 ms fade-in and fade-out, 48 kHz, 16-bit.
 - Copied once into DATAPixx3 memory at the start and replayed every trial.

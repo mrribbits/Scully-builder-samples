@@ -77,6 +77,18 @@ Remote mode itself is chosen on the Host PC: Set Options → camera mount/config
 
 The interest-area files (`aoi/`) and drawing lists are saved in the session folder under `results/`, next to the EDF.
 
+## Display latency (projector)
+In the MEG lab, a frame appears on the projector screen **one frame (≈8.33 ms) after**
+PsychoPy's flip, because the projector adds one frame of delay. Everything this experiment
+times is locked to the flip, not to when the image is actually visible:
+- **EDF messages:** `fixation_ONSET`, `target_ONSET` and `TARGET_ONSET_LEFT/RIGHT` are about
+  8.33 ms before the stimulus is visible. Gaze responses to the target (e.g. saccade latency)
+  measured from these messages are 8.33 ms too long.
+- **Trial log:** `fixation_onset_s` and `target_onset_s` are flip times. Add 8.33 ms for the
+  visible onset.
+- **Reaction time:** `resp.rt` / `rt_s` starts at the flip, so the true RT is the value
+  **− 8.33 ms**.
+
 ## Trial log (`<participant>_ChoiceRT_EyeLink_<date>_trials_log.tsv`)
 A tab-separated file with one row per trial, written and flushed after every trial, so rows survive a Ctrl-C abort. Its rows match the EDF by `eyelink_trialid` (= the `TRIALID` number).
 
