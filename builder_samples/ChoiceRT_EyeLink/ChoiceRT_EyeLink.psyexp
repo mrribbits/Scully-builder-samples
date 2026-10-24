@@ -410,7 +410,7 @@
         <Param val="time (s)" valType="str" updates="None" name="startType" />
         <Param val="0.2" valType="code" updates="None" name="startVal" />
         <Param val="duration (s)" valType="str" updates="None" name="stopType" />
-        <Param val="" valType="code" updates="constant" name="stopVal" />
+        <Param val="foreperiod + 1.5" valType="code" updates="constant" name="stopVal" />
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh" />
         <Param val="pix" valType="str" updates="None" name="units" />
         <Param val="" valType="code" updates="None" name="validator" />

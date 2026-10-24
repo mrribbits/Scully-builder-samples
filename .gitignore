@@ -10,8 +10,9 @@ results/
 *.EDF
 
 # Scripts Builder generates from the .psyexp on every run/compile
+# (only inside builder_samples/: the .py files in coder_samples/ ARE the experiments)
 *_lastrun.py
-ChoiceRT_*/ChoiceRT_*.py
+builder_samples/ChoiceRT_*/ChoiceRT_*.py
 
 # Python
 __pycache__/
